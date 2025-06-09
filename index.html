@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google Analytics - To be added -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="theme-color" content="#121212">
+  <meta name="robots" content="index, follow">
+  <meta name="revisit-after" content="7 days">
+  <link rel="canonical" href="https://goldenkiss.co.zw/">
+  <meta name="description" content="Golden Kiss Private Limited - Your trusted security partner in Zimbabwe. Professional security services including guard services, alarm systems, cash-in-transit, and mining security solutions.">
+  <meta name="keywords" content="security company Zimbabwe, security services Bulawayo, guard services, alarm systems, cash in transit, mining security">
+  <meta name="author" content="Golden Kiss Private Limited">
+  <meta property="og:title" content="Golden Kiss Security - Professional Security Services">
+  <meta property="og:description" content="Your trusted partner in protection. Professional security services in Zimbabwe.">
+  <meta property="og:image" content="images/logo.jpg">
+  <meta property="og:url" content="https://goldenkiss.co.zw">
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+  <title>Golden Kiss Private Limited - Professional Security Services Zimbabwe</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    :root {
+      --dark-bg: #121212;
+      --card-bg: rgba(255, 255, 255, 0.05);
+      --text-primary: #ffffff;
+      --text-secondary: rgba(255, 255, 255, 0.7);
+      --accent-color: #ffd700;
+      --overlay-dark: rgba(0, 0, 0, 0.7);
+    }
+
+    body {
+      background-color: var(--dark-bg);
+      color: var(--text-primary);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    section {
+      min-height: 100vh;
+      padding: 60px 0;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease-out;
+      background-color: var(--dark-bg);
+    }
+    
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .section-dark {
+      background-color: rgba(248, 249, 250, 0.02);
+    }
+    
+    .navbar {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
+      background-color: rgba(18, 18, 18, 0.8);
+      backdrop-filter: blur(10px);
+    }
+    
+    .navbar.scrolled {
+      background-color: rgba(33, 37, 41, 0.95) !important;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    body {
+      padding-top: 56px;
+    }
+
+    .hero-section {
+      background-image: url('images/company.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      position: relative;
+      min-height: 100vh;
+      overflow: hidden;
+      animation: heroScale 20s ease-in-out infinite alternate;
+    }
+
+    @keyframes heroScale {
+      from { transform: scale(1); }
+      to { transform: scale(1.1); }
+    }
+
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        linear-gradient(
+          135deg,
+          rgba(0, 0, 0, 0.9) 0%,
+          rgba(0, 0, 0, 0.7) 40%,
+          rgba(0, 0, 0, 0.4) 100%
+        );
+      z-index: 1;
+      backdrop-filter: blur(3px);
+    }
+
+    .hero-section::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 100%;
+      background-image: url('images/logo.jpg');
+      background-size: 80%;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 0.12;
+      z-index: 0;
+      pointer-events: none;
+      animation: pulseOpacity 4s ease-in-out infinite alternate;
+    }
+
+    @keyframes pulseOpacity {
+      from { opacity: 0.09; }
+      to { opacity: 0.15; }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      overflow: hidden;
+      background: var(--card-bg);
+      backdrop-filter: blur(10px);
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      border-color: var(--accent-color);
+    }
+
+    .service-icon {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      color: #0d6efd;
+    }
+
+    .scroll-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      background-color: #0d6efd;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 1000;
+    }
+
+    .scroll-to-top.visible {
+      opacity: 1;
+    }
+
+    .nav-link {
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background-color: white;
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fade-up {
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+
+    .contact-info {
+      margin-bottom: 2rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .contact-item i {
+      margin-right: 1rem;
+      font-size: 1.2rem;
+      color: #0d6efd;
+    }
+
+    .modal-content {
+      background-color: var(--dark-bg);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+    }
+
+    .modal-header {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .modal-title {
+      color: var(--text-primary);
+    }
+
+    .modal-body {
+      color: var(--text-secondary);
+    }
+
+    .btn-close {
+      filter: invert(1) grayscale(100%) brightness(200%);
+    }
+
+    .text-success {
+      color: var(--accent-color) !important;
+    }
+
+    .card-title {
+      color: var(--accent-color);
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+    }
+
+    .card-text {
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .form-label {
+      color: var(--accent-color);
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    .form-control {
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: var(--text-primary);
+      padding: 0.8rem;
+    }
+
+    .form-control:focus {
+      background-color: rgba(255, 255, 255, 0.15);
+      border-color: var(--accent-color);
+      color: var(--text-primary);
+      box-shadow: 0 0 0 0.25rem rgba(255, 215, 0, 0.25);
+    }
+
+    .form-control::placeholder {
+      color: var(--text-secondary);
+    }
+
+    #contact .card {
+      border: 1px solid var(--accent-color);
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.1);
+    }
+
+    #contact .btn-dark {
+      background: linear-gradient(45deg, #121212, #333);
+      border: 1px solid var(--accent-color);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 12px;
+    }
+
+    #contact .btn-dark:hover {
+      background: var(--accent-color);
+      color: #121212;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+    }
+
+    .text-accent {
+      color: var(--accent-color);
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+    }
+
+    /* Core Values Section Styles */
+    .value-card {
+      background: rgba(255, 215, 0, 0.05);
+      border: 1px solid #ffd700;
+      border-radius: 15px;
+      padding: 2rem;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .value-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .value-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: #ffd700;
+    }
+
+    .text-gradient {
+      background: linear-gradient(to right, #ffd700, #ffb900);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Why Choose Us Section Styles */
+    .choose-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 2rem;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .choose-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .choose-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: #0d6efd;
+    }
+
+    /* Mission Card Styles */
+    .mission-card {
+      background: linear-gradient(145deg, rgba(0, 0, 0, 0.9), rgba(18, 18, 18, 0.95));
+      border: 2px solid var(--accent-color);
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.15);
+      transition: all 0.3s ease;
+    }
+
+    .mission-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+    }
+
+    .mission-text {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: var(--text-primary);
+      text-shadow: 0 0 1px rgba(255, 255, 255, 0.1);
+      padding: 1rem 0;
+    }
+
+    /* Hero Section Button Style */
+    .hero-section .btn-grey {
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(4px);
+      border: 1px solid var(--accent-color);
+      color: var(--accent-color);
+      transition: all 0.3s ease;
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+    }
+
+    .hero-section .btn-grey:hover {
+      background: rgba(0, 0, 0, 0.6);
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .hero-section .btn-grey:active {
+      transform: translateY(0);
+      background: rgba(0, 0, 0, 0.7);
+    }
+
+    /* Photo Gallery Section */
+    .photo-section {
+      background: linear-gradient(145deg, rgba(0, 0, 0, 0.95), rgba(18, 18, 18, 0.98));
+      position: relative;
+      overflow: hidden;
+      padding: 6rem 0;
+    }
+
+    .photo-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .company-image {
+      width: 100%;
+      border-radius: 15px;
+      border: 2px solid var(--accent-color);
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .company-image:hover {
+      transform: scale(1.02);
+      box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
+    }
+
+    </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#home">Golden Kiss Private Limited</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="#about" class="nav-link">About Us</a></li>
+          <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
+          <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section id="home" class="hero-section vh-100 d-flex align-items-center">
+    <div class="container hero-content text-white text-center">
+      <h1 class="display-3 fw-bold mb-4" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5)">Welcome to Golden Kiss Security</h1>
+      <p class="lead fs-3 mb-4" style="text-shadow: 1px 1px 3px rgba(0,0,0,0.5)">Your trusted partner in protection</p>
+      <a href="#services" class="btn btn-grey btn-lg mt-3 px-5 py-3">
+        <span class="d-inline-block me-2">Explore Our Services</span>
+        <i class="bi bi-arrow-right"></i>
+      </a>
+    </div>
+  </section>
+
+  <section id="about" class="py-5" style="background: url('images/About Us.jpg') center/cover no-repeat fixed; position: relative;">
+    <div style="position: absolute; inset: 0; background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.75)); z-index: 1;"></div>
+    <div class="container" style="position: relative; z-index: 2;">
+      <h2 class="text-center mb-5 text-white">About Us</h2>
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <!-- Introduction -->
+          <div class="card mb-4 mission-card">
+            <div class="card-body">
+              <h4 class="card-title text-center mb-4">
+                <i class="bi bi-building-fill me-2 text-accent"></i>
+                <span class="text-gradient">About Golden Kiss</span>
+              </h4>
+              <p class="mission-text mb-4">
+                Golden Kiss Private Limited is a proudly Zimbabwean-owned security company founded in 2016 by Mr. Thembinkosi Sibanda. Headquartered in Bulawayo, we specialize in delivering reliable, professional, and innovative security solutions throughout Zimbabwe. We are trusted by individuals, businesses, institutions, and government entities to protect what matters most — with integrity, discipline, and excellence.
+              </p>
+              <p class="mission-text">
+                Over the years, we have built a strong reputation for consistent quality, rapid response, and customer-focused service. Whether it's securing private residences, commercial properties, construction sites, or special events, Golden Kiss is your dependable partner in safety and protection.
+              </p>
+            </div>
+          </div>
+
+          <!-- Mission & Vision -->
+          <div class="row mb-4">
+            <div class="col-md-6 mb-4">
+              <div class="card h-100 mission-card">
+                <div class="card-body">
+                  <h4 class="card-title">
+                    <i class="bi bi-flag-fill me-2 text-accent"></i>
+                    <span class="text-gradient">Our Mission</span>
+                  </h4>
+                  <p class="mission-text">To provide professional, efficient, and reliable security services that ensure peace of mind, protect lives and property, and contribute to the safety and development of Zimbabwean communities.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 mb-4">
+              <div class="card h-100 mission-card">
+                <div class="card-body">
+                  <h4 class="card-title">
+                    <i class="bi bi-eye-fill me-2 text-accent"></i>
+                    <span class="text-gradient">Our Vision</span>
+                  </h4>
+                  <p class="mission-text">To become Zimbabwe's most trusted and innovative security service provider, known for delivering peace of mind through excellence and integrity.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Core Values -->
+          <div class="card mb-4">
+            <div class="card-body">
+              <h4 class="card-title text-center mb-4">
+                <i class="bi bi-star-fill me-2 text-accent"></i>
+                <span class="text-gradient">Core Values</span>
+              </h4>
+              <div class="row g-4">
+                <div class="col-md-4">
+                  <div class="value-card">
+                    <div class="value-icon">
+                      <i class="bi bi-shield-check"></i>
+                    </div>
+                    <h5>Integrity</h5>
+                    <p>We are honest, transparent, and committed to ethical practices.</p>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="value-card">
+                    <div class="value-icon">
+                      <i class="bi bi-person-check"></i>
+                    </div>
+                    <h5>Professionalism</h5>
+                    <p>Our team is well-trained, disciplined, and respectful at all times.</p>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="value-card">
+                    <div class="value-icon">
+                      <i class="bi bi-award"></i>
+                    </div>
+                    <h5>Excellence</h5>
+                    <p>We deliver outstanding service and go above and beyond client expectations.</p>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="value-card">
+                    <div class="value-icon">
+                      <i class="bi bi-clock-history"></i>
+                    </div>
+                    <h5>Reliability</h5>
+                    <p>Our clients trust us to be there when it matters most, 24/7.</p>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="value-card">
+                    <div class="value-icon">
+                      <i class="bi bi-lightbulb"></i>
+                    </div>
+                    <h5>Innovation</h5>
+                    <p>We utilize modern technology to offer smart, effective security solutions.</p>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="value-card">
+                    <div class="value-icon">
+                      <i class="bi bi-people"></i>
+                    </div>
+                    <h5>Community Commitment</h5>
+                    <p>We invest in local talent and support Zimbabwe's economic and social development.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Why Choose Us -->
+          <div class="card mb-4">
+            <div class="card-body">
+              <h4 class="card-title text-center mb-4">
+                <i class="bi bi-check-circle-fill me-2 text-accent"></i>
+                <span class="text-gradient">Why Choose Golden Kiss</span>
+              </h4>
+              <div class="row g-4">
+                <div class="col-md-6">
+                  <div class="choose-card">
+                    <div class="choose-icon">
+                      <i class="bi bi-shield-lock"></i>
+                    </div>
+                    <h5>Expert Security Team</h5>
+                    <p>Our highly trained security professionals provide unmatched protection services.</p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="choose-card">
+                    <div class="choose-icon">
+                      <i class="bi bi-clock"></i>
+                    </div>
+                    <h5>24/7 Availability</h5>
+                    <p>Round-the-clock protection and immediate response to security concerns.</p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="choose-card">
+                    <div class="choose-icon">
+                      <i class="bi bi-gear"></i>
+                    </div>
+                    <h5>Modern Technology</h5>
+                    <p>State-of-the-art security equipment and surveillance systems.</p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="choose-card">
+                    <div class="choose-icon">
+                      <i class="bi bi-trophy"></i>
+                    </div>
+                    <h5>Proven Track Record</h5>
+                    <p>Years of successful security operations and satisfied clients.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="py-5 section-dark" style="background: url('images/Our Core Services.jpg') center/cover no-repeat fixed; position: relative;">
+    <div style="position: absolute; inset: 0; background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.75)); z-index: 1;"></div>
+    <div class="container" style="position: relative; z-index: 2;">
+      <h2 class="text-center mb-5 text-white">Our Core Services</h2>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
+            <div class="card-body text-center">
+              <i class="bi bi-shield-check service-icon"></i>
+              <h4 class="card-title">Guard Services</h4>
+              <p class="card-text">Highly trained personnel for corporate, industrial & private security.</p>
+              <a href="#" class="btn btn-outline-primary mt-3" data-bs-toggle="modal" data-bs-target="#guardModal">Learn More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
+            <div class="card-body text-center">
+              <i class="bi bi-bell service-icon"></i>
+              <h4 class="card-title">Alarm Systems</h4>
+              <p class="card-text">24/7 monitored alarm and response systems for your peace of mind.</p>
+              <a href="#" class="btn btn-outline-primary mt-3" data-bs-toggle="modal" data-bs-target="#alarmModal">Learn More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
+            <div class="card-body text-center">
+              <i class="bi bi-truck service-icon"></i>
+              <h4 class="card-title">Cash-In-Transit</h4>
+              <p class="card-text">Secure, professional movement of cash and valuables.</p>
+              <a href="#" class="btn btn-outline-primary mt-3" data-bs-toggle="modal" data-bs-target="#cashModal">Learn More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
+            <div class="card-body text-center">
+              <i class="bi bi-minecart-loaded service-icon"></i>
+              <h4 class="card-title">Mining Division</h4>
+              <p class="card-text">Specialized security solutions for mining operations and assets.</p>
+              <a href="#" class="btn btn-outline-primary mt-3" data-bs-toggle="modal" data-bs-target="#miningModal">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Photo Gallery Section -->
+  <section class="photo-section">
+    <div class="container">
+      <h2 class="text-center mb-5">
+        <span class="text-gradient">Security in the Mining Division</span>
+      </h2>
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="row">
+            <div class="col-md-6 mb-4">
+              <img src="./images/company.jpg" alt="Golden Kiss Security personnel conducting mining site inspection" class="company-image" loading="lazy" onerror="this.onerror=null; this.src='./images/logo.jpg';">
+            </div>
+            <div class="col-md-6 mb-4">
+              <img src="./images/company2.jpg" alt="Golden Kiss Security team members in full protective gear at mining facility" class="company-image" loading="lazy" onerror="this.onerror=null; this.src='./images/logo.jpg';">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-5">
+        <span class="text-accent">Contact</span> Us
+      </h2>
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <!-- Contact Information Card -->
+          <div class="card mb-4">
+            <div class="card-body">
+              <div class="text-center mb-4">
+                <i class="bi bi-headset service-icon"></i>
+                <h4 class="card-title">Contact Information</h4>
+              </div>
+              <div class="contact-info">
+                <div class="contact-item mb-3">
+                  <i class="bi bi-telephone-fill me-2 text-primary"></i>
+                  <a href="tel:+263772769534" class="text-light text-decoration-none">+263 77 276 9534</a>
+                </div>
+                <div class="contact-item mb-3">
+                  <i class="bi bi-phone-fill me-2 text-primary"></i>
+                  <a href="tel:+263712328323" class="text-light text-decoration-none">+263 71 232 8323</a>
+                </div>
+                <div class="contact-item mb-3">
+                  <i class="bi bi-envelope-fill me-2 text-primary"></i>
+                  <a href="mailto:goldenkiss.gk@gmail.com" class="text-light text-decoration-none">goldenkiss.gk@gmail.com</a>
+                </div>
+                <div class="contact-item mb-3">
+                  <i class="bi bi-geo-alt-fill me-2 text-primary"></i>
+                  <span class="text-light">57 RG Mugabe Way, Bulawayo, Zimbabwe</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="card">
+            <div class="card-body">
+              <form action="https://formspree.io/f/xqkrkpbv" method="POST">
+                <div class="mb-3">
+                  <label for="name" class="form-label">
+                    <i class="bi bi-person me-2"></i>Your Name
+                  </label>
+                  <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label">
+                    <i class="bi bi-envelope me-2"></i>Email Address
+                  </label>
+                  <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="mb-3">
+                  <label for="message" class="form-label">
+                    <i class="bi bi-chat-dots me-2"></i>Your Message
+                  </label>
+                  <textarea class="form-control" id="message" name="message" rows="4" placeholder="How can we help you?" required></textarea>
+                </div>
+                <input type="hidden" name="_subject" value="New contact from Golden Kiss website">
+                <input type="hidden" name="_next" value="thank-you.html">
+                <input type="text" name="_honey" style="display:none">
+                <button type="submit" class="btn btn-dark w-100">
+                  <i class="bi bi-send me-2"></i>Send Message
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-dark text-white text-center py-4">
+    <p>&copy; 2025 Golden Kiss Private Limited. All rights reserved.</p>
+  </footer>
+
+  <div class="scroll-to-top" id="scrollToTop">
+    <i class="bi bi-arrow-up"></i>
+  </div>
+
+  <!-- Service Modals -->
+  <div class="modal fade" id="guardModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Guard Services</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-6">
+              <h6 class="fw-bold">Our Guard Services Include:</h6>
+              <ul class="list-unstyled">
+                <li><i class="bi bi-check-circle-fill text-success me-2"></i>24/7 Armed Security Guards</li>
+                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Static Guard Posts</li>
+                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Mobile Patrol Units</li>
+                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Event Security</li>
+                <li><i class="bi bi-check-circle-fill text-success me-2"></i>VIP Protection</li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <p>Our highly trained security personnel are equipped with the latest security equipment and communication devices. All guards undergo rigorous training and background checks.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="alarmModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Alarm Systems</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-6">
+              <h6 class="fw-bold">Our Alarm Services Include:</h6>
+              <ul class="list-unstyled">
+                <li><i class="bi bi-check-circle-fill text-success me-2"></i>24/7 Monitoring</li>
+                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Rapid Response Teams</li>
+                <li><i class="bi bi-check-circle-fill text-success me-2"></i>CCTV Integration</li>
+                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Motion Detection</li>
+                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Remote Monitoring</li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <p>Our alarm systems use cutting-edge technology to provide round-the-clock protection for your property. We offer quick response times and professional monitoring services.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="cashModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Cash-In-Transit Services</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-6">
+              <h6 class="fw-bold">Our CIT Services Include:</h6>
+              <ul class="list-unstyled">
+                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Armored Vehicle Transport</li>
+                <li><i class="bi bi-check-circle-fill text-success me-2"></i>ATM Services</li>
+                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Bank Deliveries</li>
+                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Retail Collections</li>
+                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Secure Storage</li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <p>Our cash-in-transit service uses state-of-the-art armored vehicles and highly trained personnel to ensure the safe transport of your valuables.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="miningModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Mining Division</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-6">
+              <h6 class="fw-bold">Mining Security Services:</h6>
+              <ul class="list-unstyled">
+                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Mine Site Security</li>
+                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Asset Protection</li>
+                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Access Control Systems</li>
+                <li><i class="bi bi-check-circle-fill text-success me-2"></i>CCTV Monitoring</li>
+                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Emergency Response</li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <p>Our mining division specializes in comprehensive security solutions for mining operations, including site protection, asset security, and emergency response services.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Scroll to top button
+    const scrollToTopBtn = document.getElementById('scrollToTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        scrollToTopBtn.classList.add('visible');
+      } else {
+        scrollToTopBtn.classList.remove('visible');
+      }
+    });
+
+    scrollToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    // Animate sections on scroll
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+
+    // Change navbar style on scroll
+    window.addEventListener('scroll', () => {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  </script>
+</body>
+</html>
