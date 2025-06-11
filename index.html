@@ -1,6 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Place these inside the <head> section of your HTML -->
+<title>Golden Kiss | Best Security Company in Zimbabwe | Security Services in Zim</title>
+<meta name="description" content="Golden Kiss offers professional security services in Zimbabwe. Trusted as the best security company in Zim, we protect homes, businesses, and events with expert security solutions.">
+<meta name="keywords" content="security company in zim, security services in zimbabwe, best security company, Golden Kiss, Zimbabwe security, security guards, security solutions">
+
+<!-- Social Media (Open Graph for Facebook, WhatsApp, LinkedIn, etc.) -->
+<meta property="og:title" content="Golden Kiss | Best Security Company in Zimbabwe">
+<meta property="og:description" content="Golden Kiss is your trusted partner for security services in Zimbabwe. Experience the best in protection for your home, business, and events.">
+<meta property="og:image" content="https://goldenkiss.co.zw/logo.jpg"><!-- Change to your actual logo/image URL -->
+<meta property="og:url" content="https://goldenkiss.co.zw/">
+<meta property="og:type" content="website">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Golden Kiss | Best Security Company in Zimbabwe">
+<meta name="twitter:description" content="Professional security services for Zimbabwe. Golden Kiss is the best security company in Zim for your peace of mind.">
+<meta name="twitter:image" content="https://goldenkiss.co.zw/logo.jpg"><!-- Change to your actual logo/image URL -->
+  <!-- Google Analytics - To be added -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,34 +27,442 @@
   <meta name="robots" content="index, follow">
   <meta name="revisit-after" content="7 days">
   <link rel="canonical" href="https://goldenkiss.co.zw/">
+  <meta name="description" content="Golden Kiss Private Limited - Your trusted security partner in Zimbabwe. Professional security services including guard services, alarm systems, cash-in-transit, and mining security solutions.">
+  <meta name="keywords" content="security company Zimbabwe, security services Bulawayo, guard services, alarm systems, cash in transit, mining security">
   <meta name="author" content="Golden Kiss Private Limited">
-
-  <!-- SEO Meta Tags -->
-  <title>Golden Kiss | Best Security Company in Zimbabwe | Security Services in Zim</title>
-  <meta name="description" content="Golden Kiss offers professional security services in Zimbabwe. Trusted as the best security company in Zim, we protect homes, businesses, and events with expert security solutions.">
-  <meta name="keywords" content="security company in zim, security services in zimbabwe, best security company, Golden Kiss, Zimbabwe security, security guards, security solutions, security services Bulawayo, guard services, alarm systems, cash in transit, mining security">
-
-  <!-- Social Media (Open Graph) -->
-  <meta property="og:title" content="Golden Kiss | Best Security Company in Zimbabwe">
-  <meta property="og:description" content="Golden Kiss is your trusted partner for security services in Zimbabwe. Experience the best in protection for your home, business, and events.">
-  <meta property="og:image" content="https://goldenkiss.co.zw/logo.jpg">
-  <meta property="og:url" content="https://goldenkiss.co.zw/">
-  <meta property="og:type" content="website">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Golden Kiss | Best Security Company in Zimbabwe">
-  <meta name="twitter:description" content="Professional security services for Zimbabwe. Golden Kiss is the best security company in Zim for your peace of mind.">
-  <meta name="twitter:image" content="https://goldenkiss.co.zw/logo.jpg">
-
+  <meta property="og:title" content="Golden Kiss Security - Professional Security Services">
+  <meta property="og:description" content="Your trusted partner in protection. Professional security services in Zimbabwe.">
+  <meta property="og:image" content="images/logo.jpg">
+  <meta property="og:url" content="https://goldenkiss.co.zw">
   <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-
+  <title>Golden Kiss Private Limited - Professional Security Services Zimbabwe</title>
   <link rel="stylesheet" href="css/style.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
   <style>
-    /* ... your CSS here ... */
-  </style>
+    :root {
+      --dark-bg: #121212;
+      --card-bg: rgba(255, 255, 255, 0.05);
+      --text-primary: #ffffff;
+      --text-secondary: rgba(255, 255, 255, 0.7);
+      --accent-color: #ffd700;
+      --overlay-dark: rgba(0, 0, 0, 0.7);
+    }
+
+    body {
+      background-color: var(--dark-bg);
+      color: var(--text-primary);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    section {
+      min-height: 100vh;
+      padding: 60px 0;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease-out;
+      background-color: var(--dark-bg);
+    }
+    
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .section-dark {
+      background-color: rgba(248, 249, 250, 0.02);
+    }
+    
+    .navbar {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
+      background-color: rgba(18, 18, 18, 0.8);
+      backdrop-filter: blur(10px);
+    }
+    
+    .navbar.scrolled {
+      background-color: rgba(33, 37, 41, 0.95) !important;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    body {
+      padding-top: 56px;
+    }
+
+    .hero-section {
+      background-image: url('images/company.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      position: relative;
+      min-height: 100vh;
+      overflow: hidden;
+      animation: heroScale 20s ease-in-out infinite alternate;
+    }
+
+    @keyframes heroScale {
+      from { transform: scale(1); }
+      to { transform: scale(1.1); }
+    }
+
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        linear-gradient(
+          135deg,
+          rgba(0, 0, 0, 0.9) 0%,
+          rgba(0, 0, 0, 0.7) 40%,
+          rgba(0, 0, 0, 0.4) 100%
+        );
+      z-index: 1;
+      backdrop-filter: blur(3px);
+    }
+
+    .hero-section::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 100%;
+      background-image: url('images/logo.jpg');
+      background-size: 80%;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 0.12;
+      z-index: 0;
+      pointer-events: none;
+      animation: pulseOpacity 4s ease-in-out infinite alternate;
+    }
+
+    @keyframes pulseOpacity {
+      from { opacity: 0.09; }
+      to { opacity: 0.15; }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      overflow: hidden;
+      background: var(--card-bg);
+      backdrop-filter: blur(10px);
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      border-color: var(--accent-color);
+    }
+
+    .service-icon {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      color: #0d6efd;
+    }
+
+    .scroll-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      background-color: #0d6efd;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 1000;
+    }
+
+    .scroll-to-top.visible {
+      opacity: 1;
+    }
+
+    .nav-link {
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background-color: white;
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fade-up {
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+
+    .contact-info {
+      margin-bottom: 2rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .contact-item i {
+      margin-right: 1rem;
+      font-size: 1.2rem;
+      color: #0d6efd;
+    }
+
+    .modal-content {
+      background-color: var(--dark-bg);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+    }
+
+    .modal-header {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .modal-title {
+      color: var(--text-primary);
+    }
+
+    .modal-body {
+      color: var(--text-secondary);
+    }
+
+    .btn-close {
+      filter: invert(1) grayscale(100%) brightness(200%);
+    }
+
+    .text-success {
+      color: var(--accent-color) !important;
+    }
+
+    .card-title {
+      color: var(--accent-color);
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+    }
+
+    .card-text {
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .form-label {
+      color: var(--accent-color);
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    .form-control {
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: var(--text-primary);
+      padding: 0.8rem;
+    }
+
+    .form-control:focus {
+      background-color: rgba(255, 255, 255, 0.15);
+      border-color: var(--accent-color);
+      color: var(--text-primary);
+      box-shadow: 0 0 0 0.25rem rgba(255, 215, 0, 0.25);
+    }
+
+    .form-control::placeholder {
+      color: var(--text-secondary);
+    }
+
+    #contact .card {
+      border: 1px solid var(--accent-color);
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.1);
+    }
+
+    #contact .btn-dark {
+      background: linear-gradient(45deg, #121212, #333);
+      border: 1px solid var(--accent-color);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 12px;
+    }
+
+    #contact .btn-dark:hover {
+      background: var(--accent-color);
+      color: #121212;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+    }
+
+    .text-accent {
+      color: var(--accent-color);
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+    }
+
+    /* Core Values Section Styles */
+    .value-card {
+      background: rgba(255, 215, 0, 0.05);
+      border: 1px solid #ffd700;
+      border-radius: 15px;
+      padding: 2rem;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .value-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .value-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: #ffd700;
+    }
+
+    .text-gradient {
+      background: linear-gradient(to right, #ffd700, #ffb900);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Why Choose Us Section Styles */
+    .choose-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 2rem;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .choose-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .choose-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: #0d6efd;
+    }
+
+    /* Mission Card Styles */
+    .mission-card {
+      background: linear-gradient(145deg, rgba(0, 0, 0, 0.9), rgba(18, 18, 18, 0.95));
+      border: 2px solid var(--accent-color);
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.15);
+      transition: all 0.3s ease;
+    }
+
+    .mission-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+    }
+
+    .mission-text {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: var(--text-primary);
+      text-shadow: 0 0 1px rgba(255, 255, 255, 0.1);
+      padding: 1rem 0;
+    }
+
+    /* Hero Section Button Style */
+    .hero-section .btn-grey {
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(4px);
+      border: 1px solid var(--accent-color);
+      color: var(--accent-color);
+      transition: all 0.3s ease;
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+    }
+
+    .hero-section .btn-grey:hover {
+      background: rgba(0, 0, 0, 0.6);
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .hero-section .btn-grey:active {
+      transform: translateY(0);
+      background: rgba(0, 0, 0, 0.7);
+    }
+
+    /* Photo Gallery Section */
+    .photo-section {
+      background: linear-gradient(145deg, rgba(0, 0, 0, 0.95), rgba(18, 18, 18, 0.98));
+      position: relative;
+      overflow: hidden;
+      padding: 6rem 0;
+    }
+
+    .photo-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .company-image {
+      width: 100%;
+      border-radius: 15px;
+      border: 2px solid var(--accent-color);
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .company-image:hover {
+      transform: scale(1.02);
+      box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
+    }
+
+    </style>
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
